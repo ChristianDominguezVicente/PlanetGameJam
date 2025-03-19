@@ -12,17 +12,22 @@ public class AIController : MonoBehaviour
     [SerializeField] private float visionRange = 10f;
     [SerializeField] private float fieldOfView = 90f;
     [SerializeField] private LayerMask visionMask;
-    [SerializeField] private float chaseTime = 3f;
+    [SerializeField] private float chaseTime = 10f;
+    [SerializeField] private float patrolSpeed = 2f;
+    [SerializeField] private float chaseSpeed = 5f;
 
     private NavMeshAgent agent;
     private Animator animator;
     private float chaseTimer = 0f;
     private bool isChasing = false;
+    private bool playerLost = false;
+    private bool isSearching = false;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
+        agent.speed = patrolSpeed;
         PatrolToNextPoint();
     }
 
@@ -30,26 +35,71 @@ public class AIController : MonoBehaviour
     {
         if (CanSeePlayer())
         {
-            isChasing = true;
-            chaseTimer = chaseTime;
-            agent.destination = player.position;
+            StartChasing();
         }
         else if (isChasing)
         {
-            chaseTimer -= Time.deltaTime;
-            if (chaseTimer <= 0f)
-            {
-                isChasing = false;
-                PatrolToNextPoint();
-            }
+            UpdateChase();
         }
-
-        if (!isChasing && !agent.pathPending && agent.remainingDistance < 0.5f)
+        else if (!isSearching)
         {
-            PatrolToNextPoint();
+            Patrol();
         }
 
         animator.SetFloat("Speed", agent.velocity.magnitude);
+    }
+
+    private void StartChasing()
+    {
+        if (!isChasing)
+        {
+            isChasing = true;
+            playerLost = false;
+            chaseTimer = chaseTime;
+            agent.speed = chaseSpeed;
+        }
+
+        agent.destination = player.position;
+    }
+
+    private void UpdateChase()
+    {
+        chaseTimer -= Time.deltaTime;
+
+        if (chaseTimer <= 0f)
+        {
+            playerLost = true;
+            StartSearching();
+        }
+
+        if (!playerLost)
+        {
+            agent.destination = player.position;
+        }
+    }
+
+    private void StartSearching()
+    {
+        isChasing = false;
+        isSearching = true;
+        agent.speed = 0;
+        animator.SetBool("Vigilant", true);
+    }
+
+    public void EndSearching()
+    {
+        isSearching = false;
+        animator.SetBool("Vigilant", false);
+        agent.speed = patrolSpeed;
+        PatrolToNextPoint();
+    }
+
+    private void Patrol()
+    {
+        if (!agent.pathPending && agent.remainingDistance < 0.5f)
+        {
+            PatrolToNextPoint();
+        }
     }
 
     private void PatrolToNextPoint()
