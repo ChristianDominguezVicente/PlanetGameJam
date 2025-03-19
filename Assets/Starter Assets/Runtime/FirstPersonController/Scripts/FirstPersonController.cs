@@ -56,6 +56,11 @@ namespace StarterAssets
         public float StandingHeight = 2f;
         public float CrouchSpeed = 2.0f;
 
+        [Header("Stamina Settings")]
+        public float MaxStamina = 5.0f;
+        public float StaminaDecreaseRate = 1.0f;
+        public float StaminaRecoveryRate = 1.0f;
+
         // cinemachine
         private float _cinemachineTargetPitch;
 
@@ -73,6 +78,10 @@ namespace StarterAssets
         private bool _isCrouching = false;
         private float _cameraHeightVelocity = 0f; // camera speed for SmoothDamp
         public float CameraHeightSmoothTime = 0.2f; // smoothing time for camera transition
+
+        // stamina
+        private float _currentStamina;
+        private bool _canSprint = true;
 
 #if ENABLE_INPUT_SYSTEM
         private PlayerInput _playerInput;
@@ -94,6 +103,8 @@ namespace StarterAssets
 #endif
             }
         }
+
+        public float CurrentStamina { get => _currentStamina; set => _currentStamina = value; }
 
         private void Awake()
         {
@@ -117,12 +128,14 @@ namespace StarterAssets
             // reset our timeouts on start
             _jumpTimeoutDelta = JumpTimeout;
             _fallTimeoutDelta = FallTimeout;
+            _currentStamina = MaxStamina;
         }
 
         private void Update()
         {
             JumpAndGravity();
             GroundedCheck();
+            HandleStamina();
             Move();
             HandleCrouch();
         }
@@ -161,10 +174,32 @@ namespace StarterAssets
             }
         }
 
+        private void HandleStamina()
+        {
+            if (_input.sprint && _canSprint)
+            {
+                _currentStamina -= StaminaDecreaseRate * Time.deltaTime;
+                if (_currentStamina <= 0)
+                {
+                    _currentStamina = 0;
+                    _canSprint = false;
+                }
+            }
+            else
+            {
+                _currentStamina += StaminaRecoveryRate * Time.deltaTime;
+                if (_currentStamina >= MaxStamina)
+                {
+                    _currentStamina = MaxStamina;
+                    _canSprint = true;
+                }
+            }
+        }
+
         private void Move()
         {
             // disable sprint while crouching
-            if (_isCrouching)
+            if (_isCrouching || !_canSprint)
             {
                 _input.sprint = false; // prevent sprint from being activated
             }
