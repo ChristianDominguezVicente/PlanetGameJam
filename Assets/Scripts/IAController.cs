@@ -26,6 +26,9 @@ public class AIController : MonoBehaviour
     private int counter = 0;
     private bool isPlayerNearby = false;
 
+    public bool IsChasing { get => isChasing; }
+    public bool IsSearching { get => isSearching; }
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -164,6 +167,11 @@ public class AIController : MonoBehaviour
         if (isChasing) return;
         agent.isStopped = true;
         animator.SetTrigger("Dead");
+    }
+
+    private void End()
+    {
+        animator.SetTrigger("End");
     }
 
     private void OnTriggerEnter(Collider other)
