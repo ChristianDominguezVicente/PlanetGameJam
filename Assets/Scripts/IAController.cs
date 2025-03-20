@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.InputSystem;
 
 public class AIController : MonoBehaviour
 {
@@ -22,13 +23,15 @@ public class AIController : MonoBehaviour
     private bool isChasing = false;
     private bool playerLost = false;
     private bool isSearching = false;
+    private int counter = 0;
+    private bool isPlayerNearby = false;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         agent.speed = patrolSpeed;
-        PatrolToNextPoint();
+        animator.SetTrigger("StartMoving");
     }
 
     void Update()
@@ -47,6 +50,11 @@ public class AIController : MonoBehaviour
         }
 
         animator.SetFloat("Speed", agent.velocity.magnitude);
+
+        if(isPlayerNearby && Keyboard.current.eKey.wasPressedThisFrame)
+        {
+            DeactivateEnemy();
+        }
     }
 
     private void StartChasing()
@@ -88,16 +96,21 @@ public class AIController : MonoBehaviour
 
     public void EndSearching()
     {
-        isSearching = false;
-        animator.SetBool("Vigilant", false);
-        agent.speed = patrolSpeed;
-        PatrolToNextPoint();
+        counter++;
+        if(counter >= 2)
+        {
+            isSearching = false;
+            animator.SetBool("Vigilant", false);
+            agent.speed = patrolSpeed;
+            counter = 0;
+        }
     }
 
     private void Patrol()
     {
         if (!agent.pathPending && agent.remainingDistance < 0.5f)
         {
+            animator.SetTrigger("StartMoving");
             PatrolToNextPoint();
         }
     }
@@ -131,6 +144,7 @@ public class AIController : MonoBehaviour
         }
         return false;
     }
+
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
@@ -143,5 +157,28 @@ public class AIController : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawRay(rayOrigin, leftLimit * visionRange);
         Gizmos.DrawRay(rayOrigin, rightLimit * visionRange);
+    }
+
+    private void DeactivateEnemy()
+    {
+        if (isChasing) return;
+        agent.isStopped = true;
+        animator.SetTrigger("Dead");
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            isPlayerNearby = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            isPlayerNearby = false;
+        }
     }
 }

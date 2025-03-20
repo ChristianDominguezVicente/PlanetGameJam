@@ -49,6 +49,7 @@ namespace StarterAssets
         {
             CrouchInput(value.isPressed);
         }
+
 #endif
 
 

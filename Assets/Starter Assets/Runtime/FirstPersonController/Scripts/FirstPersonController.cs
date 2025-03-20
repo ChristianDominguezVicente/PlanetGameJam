@@ -82,6 +82,7 @@ namespace StarterAssets
         // stamina
         private float _currentStamina;
         private bool _canSprint = true;
+        
 
 #if ENABLE_INPUT_SYSTEM
         private PlayerInput _playerInput;
