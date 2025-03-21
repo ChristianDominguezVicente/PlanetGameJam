@@ -1,3 +1,4 @@
+using System.Drawing;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
@@ -16,6 +17,15 @@ public class AIController : MonoBehaviour
     [SerializeField] private float chaseTime = 10f;
     [SerializeField] private float patrolSpeed = 2f;
     [SerializeField] private float chaseSpeed = 5f;
+
+    [Header("Luces")]
+    [SerializeField] private GameObject vigilanceLight;
+    [SerializeField] private GameObject cylinder;
+    [SerializeField] private GameObject[] pointLights;
+    private UnityEngine.Color greenLight = new UnityEngine.Color(0.494f, 0.980f, 0.667f);
+    private UnityEngine.Color redLight = new UnityEngine.Color(1f, 0f, 0.082f);
+
+
 
     private NavMeshAgent agent;
     private Animator animator;
@@ -41,6 +51,7 @@ public class AIController : MonoBehaviour
     {
         if (CanSeePlayer())
         {
+
             StartChasing();
         }
         else if (isChasing)
@@ -71,6 +82,10 @@ public class AIController : MonoBehaviour
         }
 
         agent.destination = player.position;
+
+        //color luz
+        ChangeLights(redLight);
+
     }
 
     private void UpdateChase()
@@ -116,6 +131,9 @@ public class AIController : MonoBehaviour
             animator.SetTrigger("StartMoving");
             PatrolToNextPoint();
         }
+
+        //color luz
+        ChangeLights(greenLight);
     }
 
     private void PatrolToNextPoint()
@@ -133,7 +151,7 @@ public class AIController : MonoBehaviour
         float angle = Vector3.Angle(transform.forward, directionToPlayer);
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
 
-        Debug.DrawRay(rayOrigin, directionToPlayer * visionRange, Color.green, 1f);
+        Debug.DrawRay(rayOrigin, directionToPlayer * visionRange, UnityEngine.Color.green, 1f);
 
         if (angle < fieldOfView / 2 && distanceToPlayer < visionRange)
         {
@@ -150,14 +168,14 @@ public class AIController : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.color = Color.yellow;
+        Gizmos.color = UnityEngine.Color.yellow;
         Gizmos.DrawWireSphere(transform.position, visionRange);
 
         Vector3 rayOrigin = transform.position + Vector3.up * 1.2f;
         Vector3 leftLimit = Quaternion.Euler(0, -fieldOfView / 2, 0) * transform.forward;
         Vector3 rightLimit = Quaternion.Euler(0, fieldOfView / 2, 0) * transform.forward;
 
-        Gizmos.color = Color.red;
+        Gizmos.color = UnityEngine.Color.red;
         Gizmos.DrawRay(rayOrigin, leftLimit * visionRange);
         Gizmos.DrawRay(rayOrigin, rightLimit * visionRange);
     }
@@ -188,5 +206,12 @@ public class AIController : MonoBehaviour
         {
             isPlayerNearby = false;
         }
+    }
+
+    private void ChangeLights(UnityEngine.Color color)
+    {
+        vigilanceLight.GetComponent<Light>().color = color;
+        cylinder.GetComponent<Renderer>().material.color = color;
+        pointLights[0].GetComponent<Light>().color = color;
     }
 }
