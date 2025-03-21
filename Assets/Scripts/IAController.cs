@@ -17,14 +17,15 @@ public class AIController : MonoBehaviour
     [SerializeField] private float chaseTime = 10f;
     [SerializeField] private float patrolSpeed = 2f;
     [SerializeField] private float chaseSpeed = 5f;
-    /*
+    
     [Header("Luces")]
     [SerializeField] private GameObject vigilanceLight;
     [SerializeField] private GameObject cylinder;
     [SerializeField] private GameObject[] pointLights;
     private UnityEngine.Color greenLight = new UnityEngine.Color(0.494f, 0.980f, 0.667f);
     private UnityEngine.Color redLight = new UnityEngine.Color(1f, 0f, 0.082f);
-    */
+    private UnityEngine.Color yellowLight = new UnityEngine.Color(1f, 1f, 0f);
+    
 
 
     private NavMeshAgent agent;
@@ -84,7 +85,7 @@ public class AIController : MonoBehaviour
         agent.destination = player.position;
 
         //color luz
-        //ChangeLights(redLight);
+        ChangeLights(redLight);
 
     }
 
@@ -110,6 +111,8 @@ public class AIController : MonoBehaviour
         isSearching = true;
         agent.speed = 0;
         animator.SetBool("Vigilant", true);
+
+        ChangeLights(yellowLight);
     }
 
     public void EndSearching()
@@ -133,7 +136,7 @@ public class AIController : MonoBehaviour
         }
 
         //color luz
-        //ChangeLights(greenLight);
+        ChangeLights(greenLight);
     }
 
     private void PatrolToNextPoint()
@@ -207,12 +210,17 @@ public class AIController : MonoBehaviour
             isPlayerNearby = false;
         }
     }
-    /*
+    
     private void ChangeLights(UnityEngine.Color color)
     {
         vigilanceLight.GetComponent<Light>().color = color;
         cylinder.GetComponent<Renderer>().material.color = color;
-        pointLights[0].GetComponent<Light>().color = color;
+        for (int i = 0; i < pointLights.Length; i++)
+        {
+            pointLights[i].GetComponent<Light>().color = color;
+        }
+
+        
     }
-    */
+    
 }
