@@ -729,6 +729,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy2
       objectReference: {fileID: 0}
+    - target: {fileID: 6045348509724116367, guid: ffb8ec0a4b42d4c7caabfc858e554536, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1902990362}
+    - target: {fileID: 6045348509724116367, guid: ffb8ec0a4b42d4c7caabfc858e554536, type: 3}
+      propertyPath: 'waypoints.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1051965873}
+    - target: {fileID: 6045348509724116367, guid: ffb8ec0a4b42d4c7caabfc858e554536, type: 3}
+      propertyPath: 'waypoints.Array.data[1]'
+      value: 
+      objectReference: {fileID: 154530730}
+    - target: {fileID: 6045348509724116367, guid: ffb8ec0a4b42d4c7caabfc858e554536, type: 3}
+      propertyPath: 'waypoints.Array.data[2]'
+      value: 
+      objectReference: {fileID: 590789430}
+    - target: {fileID: 6045348509724116367, guid: ffb8ec0a4b42d4c7caabfc858e554536, type: 3}
+      propertyPath: 'waypoints.Array.data[3]'
+      value: 
+      objectReference: {fileID: 1684522171}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
