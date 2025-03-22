@@ -5,6 +5,7 @@ using UnityEngine;
 public class Door : MonoBehaviour
 {
     [SerializeField] private GameObject doorText;
+    [SerializeField] private int keys = 1;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -12,7 +13,7 @@ public class Door : MonoBehaviour
 
         if (player != null)
         {
-            if(player.Key >= 1)
+            if(player.Key >= keys)
             {
                 transform.parent.gameObject.SetActive(false);
             }
