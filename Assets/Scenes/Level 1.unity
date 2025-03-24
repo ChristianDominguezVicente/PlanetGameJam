@@ -386,6 +386,22 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7588318089911707050, guid: 82dc89db0eb07d84e9eef3e95431d31e, type: 3}
   m_PrefabInstance: {fileID: 448480803}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &448480806 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1554054733584783749, guid: 82dc89db0eb07d84e9eef3e95431d31e, type: 3}
+  m_PrefabInstance: {fileID: 448480803}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &448480807 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5942251584792598404, guid: 82dc89db0eb07d84e9eef3e95431d31e, type: 3}
+  m_PrefabInstance: {fileID: 448480803}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &461029521
 GameObject:
   m_ObjectHideFlags: 0
@@ -2235,6 +2251,14 @@ PrefabInstance:
       propertyPath: OnKeyCollected.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 448480804}
+    - target: {fileID: 8616685848737228371, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
+      propertyPath: dieText
+      value: 
+      objectReference: {fileID: 448480806}
+    - target: {fileID: 8616685848737228371, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
+      propertyPath: blackScreen
+      value: 
+      objectReference: {fileID: 448480807}
     - target: {fileID: 8616685848737228372, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
       propertyPath: m_Name
       value: PlayerCapsule
@@ -3115,6 +3139,10 @@ PrefabInstance:
       propertyPath: doorText
       value: 
       objectReference: {fileID: 448480805}
+    - target: {fileID: 6034753648397436274, guid: 7359d217ebd3383448ca813636ab60ee, type: 3}
+      propertyPath: blackScreen
+      value: 
+      objectReference: {fileID: 448480807}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -36,6 +36,7 @@ public class AIController : MonoBehaviour
     private bool isSearching = false;
     private int counter = 0;
     private bool isPlayerNearby = false;
+    private bool isDeactivated = false;
 
     public bool IsChasing { get => isChasing; }
     public bool IsSearching { get => isSearching; }
@@ -50,6 +51,8 @@ public class AIController : MonoBehaviour
 
     void Update()
     {
+        if (isDeactivated) return;
+
         if (CanSeePlayer())
         {
 
@@ -149,6 +152,8 @@ public class AIController : MonoBehaviour
 
     private bool CanSeePlayer()
     {
+        if (isDeactivated) return false;
+
         Vector3 rayOrigin = transform.position + Vector3.up * 0.5f;
         Vector3 directionToPlayer = (player.position - rayOrigin).normalized;
         float angle = Vector3.Angle(transform.forward, directionToPlayer);
@@ -185,7 +190,8 @@ public class AIController : MonoBehaviour
 
     private void DeactivateEnemy()
     {
-        if (isChasing) return;
+        if (isChasing || isDeactivated) return;
+        isDeactivated = true;
         agent.isStopped = true;
         animator.SetTrigger("Dead");
     }

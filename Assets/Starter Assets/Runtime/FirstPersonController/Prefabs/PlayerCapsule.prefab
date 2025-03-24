@@ -378,6 +378,9 @@ MonoBehaviour:
   MaxStamina: 5
   StaminaDecreaseRate: 1
   StaminaRecoveryRate: 1
+  mainCamera: {fileID: 5237137023006340424}
+  blackScreen: {fileID: 0}
+  dieText: {fileID: 0}
   CameraHeightSmoothTime: 0.2
 --- !u!114 &1978471637655604388
 MonoBehaviour:
