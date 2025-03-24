@@ -5,10 +5,9 @@ using UnityEngine.UI;
 
 public class AlertSystem : MonoBehaviour
 {
-    [SerializeField] private Image alertImage;
-    [SerializeField] private Color patrolColor = Color.green;
-    [SerializeField] private Color searchingColor = Color.yellow;
-    [SerializeField] private Color chasingColor = Color.red;
+    [SerializeField] private GameObject lowAlert;
+    [SerializeField] private GameObject midAlert;
+    [SerializeField] private GameObject highAlert;
 
     private AIController[] enemies;
 
@@ -33,7 +32,9 @@ public class AlertSystem : MonoBehaviour
     {
         if (enemies.Length == 0)
         {
-            alertImage.color = patrolColor;
+            lowAlert.SetActive(true);
+            midAlert.SetActive(false);
+            highAlert.SetActive(false);
             return;
         }
 
@@ -41,10 +42,26 @@ public class AlertSystem : MonoBehaviour
         bool isSearching = enemies.Any(enemy => enemy.IsSearching);
 
         if (isChasing)
-            alertImage.color = chasingColor;
+        {
+            lowAlert.SetActive(false);
+            midAlert.SetActive(false);
+            highAlert.SetActive(true);
+        }
+
         else if (isSearching)
-            alertImage.color = searchingColor;
+        {
+            lowAlert.SetActive(false);
+            midAlert.SetActive(true);
+            highAlert.SetActive(false);
+        }
+            
+
         else
-            alertImage.color = patrolColor;
+        {
+            lowAlert.SetActive(true);
+            midAlert.SetActive(false);
+            highAlert.SetActive(false);
+        }
+            
     }
 }
