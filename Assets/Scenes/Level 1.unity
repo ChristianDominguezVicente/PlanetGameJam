@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 36d9163b23d3506419c1c7c7eb87bcf8, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -3092,8 +3092,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2442478867996705081, guid: 7359d217ebd3383448ca813636ab60ee, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 4.6928
+      objectReference: {fileID: 0}
+    - target: {fileID: 2442478867996705081, guid: 7359d217ebd3383448ca813636ab60ee, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -20.63
+      value: -20.49
       objectReference: {fileID: 0}
     - target: {fileID: 2442478867996705081, guid: 7359d217ebd3383448ca813636ab60ee, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3101,7 +3105,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2442478867996705081, guid: 7359d217ebd3383448ca813636ab60ee, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.17
       objectReference: {fileID: 0}
     - target: {fileID: 2442478867996705081, guid: 7359d217ebd3383448ca813636ab60ee, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3135,6 +3139,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Door
       objectReference: {fileID: 0}
+    - target: {fileID: 5262290821345408975, guid: 7359d217ebd3383448ca813636ab60ee, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 244cd44ddd850425fa2f82c6671a29d0, type: 2}
     - target: {fileID: 6034753648397436274, guid: 7359d217ebd3383448ca813636ab60ee, type: 3}
       propertyPath: doorText
       value: 
