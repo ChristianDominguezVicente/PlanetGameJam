@@ -521,7 +521,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 280, y: -79}
+  m_AnchoredPosition: {x: 264, y: -79}
   m_SizeDelta: {x: 400, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1242294304
@@ -566,8 +566,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Dev\n\nAzazel\n\nPaula Noriega\n\nChristian Dom\xEDnguez (Vaskymon)\n\nGuillermo
-    L\xF3pez (Guille_Von_Zarovich)\n\nAlba\n\n"
+  m_text: "Dev\n\nAzazel Fern\xE1ndez (szephyr)\n\nPaula Noriega (dreamterlude)\n\nChristian
+    Dom\xEDnguez (Vaskymon)\n\nGuillermo L\xF3pez (Guille_Von_Zarovich)\n\nAlba Conde
+    (MiyaMuya)\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e6a96ff1d2e714d4aba971e3734c5f66, type: 2}
   m_sharedMaterial: {fileID: -5399900003667409886, guid: e6a96ff1d2e714d4aba971e3734c5f66, type: 2}
@@ -601,7 +602,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 4
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -840,7 +841,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -79}
+  m_AnchoredPosition: {x: 10, y: -79}
   m_SizeDelta: {x: 400, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1806751276
@@ -898,7 +899,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
