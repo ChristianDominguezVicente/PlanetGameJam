@@ -194,6 +194,8 @@ public class AIController : MonoBehaviour
         isDeactivated = true;
         agent.isStopped = true;
         animator.SetTrigger("Dead");
+        cylinder.SetActive(false);
+        vigilanceLight.SetActive(false);
     }
 
     private void End()
