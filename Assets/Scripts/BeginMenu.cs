@@ -13,6 +13,8 @@ public class BeginMenu : MonoBehaviour
 
     public void Play()
     {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
