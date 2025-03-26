@@ -148,6 +148,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb5bf018cce354dcfb22387567fd9642, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelMusic:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  blackScreen: {fileID: 0}
 --- !u!4 &84939464
 Transform:
   m_ObjectHideFlags: 0
@@ -643,86 +651,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 967768740383807745, guid: 768d645b916859f42a216c080bb77867, type: 3}
-      propertyPath: menuMusic.Path
-      value: event:/Music/TemaMenu
-      objectReference: {fileID: 0}
-    - target: {fileID: 967768740383807745, guid: 768d645b916859f42a216c080bb77867, type: 3}
-      propertyPath: openMenuSound.Path
-      value: event:/UI/select
-      objectReference: {fileID: 0}
-    - target: {fileID: 967768740383807745, guid: 768d645b916859f42a216c080bb77867, type: 3}
-      propertyPath: closeMenuSound.Path
-      value: event:/UI/back
-      objectReference: {fileID: 0}
-    - target: {fileID: 967768740383807745, guid: 768d645b916859f42a216c080bb77867, type: 3}
-      propertyPath: menuMusic.Guid.Data1
-      value: 1417936653
-      objectReference: {fileID: 0}
-    - target: {fileID: 967768740383807745, guid: 768d645b916859f42a216c080bb77867, type: 3}
-      propertyPath: menuMusic.Guid.Data2
-      value: 1334927468
-      objectReference: {fileID: 0}
-    - target: {fileID: 967768740383807745, guid: 768d645b916859f42a216c080bb77867, type: 3}
-      propertyPath: menuMusic.Guid.Data3
-      value: -1485296748
-      objectReference: {fileID: 0}
-    - target: {fileID: 967768740383807745, guid: 768d645b916859f42a216c080bb77867, type: 3}
-      propertyPath: menuMusic.Guid.Data4
-      value: 245300326
-      objectReference: {fileID: 0}
-    - target: {fileID: 967768740383807745, guid: 768d645b916859f42a216c080bb77867, type: 3}
-      propertyPath: buttonClickSound.Path
-      value: event:/UI/change_selection
-      objectReference: {fileID: 0}
-    - target: {fileID: 967768740383807745, guid: 768d645b916859f42a216c080bb77867, type: 3}
-      propertyPath: openMenuSound.Guid.Data1
-      value: -32246978
-      objectReference: {fileID: 0}
-    - target: {fileID: 967768740383807745, guid: 768d645b916859f42a216c080bb77867, type: 3}
-      propertyPath: openMenuSound.Guid.Data2
-      value: 1154066866
-      objectReference: {fileID: 0}
-    - target: {fileID: 967768740383807745, guid: 768d645b916859f42a216c080bb77867, type: 3}
-      propertyPath: openMenuSound.Guid.Data3
-      value: 391426985
-      objectReference: {fileID: 0}
-    - target: {fileID: 967768740383807745, guid: 768d645b916859f42a216c080bb77867, type: 3}
-      propertyPath: openMenuSound.Guid.Data4
-      value: 1083248724
-      objectReference: {fileID: 0}
-    - target: {fileID: 967768740383807745, guid: 768d645b916859f42a216c080bb77867, type: 3}
-      propertyPath: closeMenuSound.Guid.Data1
-      value: 225403598
-      objectReference: {fileID: 0}
-    - target: {fileID: 967768740383807745, guid: 768d645b916859f42a216c080bb77867, type: 3}
-      propertyPath: closeMenuSound.Guid.Data2
-      value: 1174589660
-      objectReference: {fileID: 0}
-    - target: {fileID: 967768740383807745, guid: 768d645b916859f42a216c080bb77867, type: 3}
-      propertyPath: closeMenuSound.Guid.Data3
-      value: 696638346
-      objectReference: {fileID: 0}
-    - target: {fileID: 967768740383807745, guid: 768d645b916859f42a216c080bb77867, type: 3}
-      propertyPath: closeMenuSound.Guid.Data4
-      value: 1955280997
-      objectReference: {fileID: 0}
-    - target: {fileID: 967768740383807745, guid: 768d645b916859f42a216c080bb77867, type: 3}
-      propertyPath: buttonClickSound.Guid.Data1
-      value: -1045043580
-      objectReference: {fileID: 0}
-    - target: {fileID: 967768740383807745, guid: 768d645b916859f42a216c080bb77867, type: 3}
-      propertyPath: buttonClickSound.Guid.Data2
-      value: 1107684183
-      objectReference: {fileID: 0}
-    - target: {fileID: 967768740383807745, guid: 768d645b916859f42a216c080bb77867, type: 3}
-      propertyPath: buttonClickSound.Guid.Data3
-      value: 1276509848
-      objectReference: {fileID: 0}
-    - target: {fileID: 967768740383807745, guid: 768d645b916859f42a216c080bb77867, type: 3}
-      propertyPath: buttonClickSound.Guid.Data4
-      value: 1566440559
-      objectReference: {fileID: 0}
     - target: {fileID: 1384670588166963551, guid: 768d645b916859f42a216c080bb77867, type: 3}
       propertyPath: m_Name
       value: CanvasBeginMenu
@@ -807,114 +735,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3101295841342855873, guid: 768d645b916859f42a216c080bb77867, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3101295841342855873, guid: 768d645b916859f42a216c080bb77867, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3101295841342855873, guid: 768d645b916859f42a216c080bb77867, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3101295841342855873, guid: 768d645b916859f42a216c080bb77867, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 2831042888012052049}
-    - target: {fileID: 3101295841342855873, guid: 768d645b916859f42a216c080bb77867, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3101295841342855873, guid: 768d645b916859f42a216c080bb77867, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Settings
-      objectReference: {fileID: 0}
-    - target: {fileID: 3101295841342855873, guid: 768d645b916859f42a216c080bb77867, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: BeginMenu, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 3101295841342855873, guid: 768d645b916859f42a216c080bb77867, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
-      value: UnityEngine.GameObject, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 3101295841342855873, guid: 768d645b916859f42a216c080bb77867, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3101295841342855873, guid: 768d645b916859f42a216c080bb77867, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_BoolArgument
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3101295841342855873, guid: 768d645b916859f42a216c080bb77867, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 5219557656754563732, guid: 768d645b916859f42a216c080bb77867, type: 3}
-      propertyPath: buttonClickSound.Path
-      value: event:/UI/change_selection
-      objectReference: {fileID: 0}
-    - target: {fileID: 5219557656754563732, guid: 768d645b916859f42a216c080bb77867, type: 3}
-      propertyPath: buttonClickSound.Guid.Data1
-      value: -1045043580
-      objectReference: {fileID: 0}
-    - target: {fileID: 5219557656754563732, guid: 768d645b916859f42a216c080bb77867, type: 3}
-      propertyPath: buttonClickSound.Guid.Data2
-      value: 1107684183
-      objectReference: {fileID: 0}
-    - target: {fileID: 5219557656754563732, guid: 768d645b916859f42a216c080bb77867, type: 3}
-      propertyPath: buttonClickSound.Guid.Data3
-      value: 1276509848
-      objectReference: {fileID: 0}
-    - target: {fileID: 5219557656754563732, guid: 768d645b916859f42a216c080bb77867, type: 3}
-      propertyPath: buttonClickSound.Guid.Data4
-      value: 1566440559
-      objectReference: {fileID: 0}
-    - target: {fileID: 7548437804648669261, guid: 768d645b916859f42a216c080bb77867, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7548437804648669261, guid: 768d645b916859f42a216c080bb77867, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7548437804648669261, guid: 768d645b916859f42a216c080bb77867, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 2831042888012052049}
-    - target: {fileID: 7548437804648669261, guid: 768d645b916859f42a216c080bb77867, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ExitScreen
-      objectReference: {fileID: 0}
-    - target: {fileID: 7548437804648669261, guid: 768d645b916859f42a216c080bb77867, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: BeginMenu, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 7548437804648669261, guid: 768d645b916859f42a216c080bb77867, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7548437804648669261, guid: 768d645b916859f42a216c080bb77867, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 768d645b916859f42a216c080bb77867, type: 3}
---- !u!114 &2831042888012052049 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 967768740383807745, guid: 768d645b916859f42a216c080bb77867, type: 3}
-  m_PrefabInstance: {fileID: 2831042888012052048}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82389bd423b5d2b48897eec9460fa82b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
