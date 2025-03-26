@@ -2,14 +2,17 @@ using System.Drawing;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
+using FMODUnity;
+using FMOD.Studio;
 
+[RequireComponent(typeof(StudioEventEmitter))]
 public class AIController : MonoBehaviour
 {
     [Header("Patrulla")]
     [SerializeField] private Transform[] waypoints;
     private int currentWaypointIndex = 0;
 
-    [Header("Persecución")]
+    [Header("Persecucion")]
     [SerializeField] private Transform player;
     [SerializeField] private float visionRange = 10f;
     [SerializeField] private float fieldOfView = 90f;
@@ -26,6 +29,13 @@ public class AIController : MonoBehaviour
     private UnityEngine.Color redLight = new UnityEngine.Color(1f, 0f, 0.082f);
     private UnityEngine.Color yellowLight = new UnityEngine.Color(1f, 1f, 0f);
     
+
+    [Header("Audio")]
+    [SerializeField] private EventReference deactivationSound;
+    [SerializeField] private EventReference movingSound;
+    [SerializeField] private EventReference alarmSound;
+    private EventInstance enemyMotorSound;
+    private StudioEventEmitter emitter;
 
 
     private NavMeshAgent agent;
@@ -47,6 +57,9 @@ public class AIController : MonoBehaviour
         animator = GetComponent<Animator>();
         agent.speed = patrolSpeed;
         animator.SetTrigger("StartMoving");
+        //enemyMotorSound = AudioManager.instance.CreateEventInstance(movingSound);
+        emitter = AudioManager.instance.InitializeEventEmitter(movingSound, this.gameObject);
+        emitter.Play();
     }
 
     void Update()
@@ -55,7 +68,7 @@ public class AIController : MonoBehaviour
 
         if (CanSeePlayer())
         {
-
+            AudioManager.instance.SetMusicIntensity(1f);
             StartChasing();
         }
         else if (isChasing)
@@ -64,7 +77,7 @@ public class AIController : MonoBehaviour
         }
         else if (!isSearching)
         {
-            Patrol();
+            Patrol();  
         }
 
         animator.SetFloat("Speed", agent.velocity.magnitude);
@@ -73,12 +86,15 @@ public class AIController : MonoBehaviour
         {
             DeactivateEnemy();
         }
+
+        UpdateSounds();
     }
 
     private void StartChasing()
     {
         if (!isChasing)
         {
+            AudioManager.instance.PlayOneShot(alarmSound, this.transform.position);
             isChasing = true;
             playerLost = false;
             chaseTimer = chaseTime;
@@ -116,6 +132,7 @@ public class AIController : MonoBehaviour
         animator.SetBool("Vigilant", true);
 
         ChangeLights(yellowLight);
+        AudioManager.instance.SetMusicIntensity(0.4f);
     }
 
     public void EndSearching()
@@ -140,6 +157,7 @@ public class AIController : MonoBehaviour
 
         //color luz
         ChangeLights(greenLight);
+        AudioManager.instance.SetMusicIntensity(0f);
     }
 
     private void PatrolToNextPoint()
@@ -194,8 +212,12 @@ public class AIController : MonoBehaviour
         isDeactivated = true;
         agent.isStopped = true;
         animator.SetTrigger("Dead");
+        AudioManager.instance.PlayOneShot(deactivationSound, this.transform.position);
         cylinder.SetActive(false);
         vigilanceLight.SetActive(false);
+
+        //stops sound
+        emitter.Stop();
     }
 
     private void End()
@@ -228,6 +250,24 @@ public class AIController : MonoBehaviour
             pointLights[i].GetComponent<Light>().color = color;
         }
 
+        
+    }
+
+    private void UpdateSounds() 
+    {
+        if (!isDeactivated)
+        {
+            PLAYBACK_STATE playbackState;
+            enemyMotorSound.getPlaybackState(out playbackState);
+            if (playbackState.Equals(PLAYBACK_STATE.STOPPED))
+            {
+                enemyMotorSound.start();
+            }
+        }
+        else 
+        {
+            enemyMotorSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        }
         
     }
     

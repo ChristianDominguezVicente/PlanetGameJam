@@ -104,6 +104,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e0e875db38782e4c9dcc12f5f1e32ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  keyCollectedSound:
+    Guid:
+      Data1: -989619426
+      Data2: 1221517825
+      Data3: -1965895805
+      Data4: -1986890989
+    Path: event:/Objects/KeyObtained
 --- !u!65 &5207186875158116687
 BoxCollider:
   m_ObjectHideFlags: 0

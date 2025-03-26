@@ -375,6 +375,7 @@ GameObject:
   - component: {fileID: 1006994456771808083}
   - component: {fileID: 275112674683125185}
   - component: {fileID: 6479151507570693858}
+  - component: {fileID: 1273511405822848199}
   m_Layer: 8
   m_Name: Cylinder
   m_TagString: Untagged
@@ -475,6 +476,58 @@ MonoBehaviour:
   vigilanceLight: {fileID: 7375200538600610988}
   cylinder: {fileID: 6608889587987252080}
   pointLights: []
+  deactivationSound:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  movingSound:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  alarmSound:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+--- !u!114 &1273511405822848199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6608889587987252080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: -1
+  OverrideMaxDistance: -1
 --- !u!1 &7375200538600610988
 GameObject:
   m_ObjectHideFlags: 0
@@ -930,6 +983,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 84f2a1af9181048e1932c18db40af12d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5041088264059701597}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 84f2a1af9181048e1932c18db40af12d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 846092074098578229}
   m_SourcePrefab: {fileID: 100100000, guid: 84f2a1af9181048e1932c18db40af12d, type: 3}
 --- !u!4 &4758553732846678019 stripped
 Transform:
@@ -973,6 +1029,27 @@ MonoBehaviour:
   - {fileID: 1503198839984393380}
   - {fileID: 2863516296185353809}
   - {fileID: 5212406470811342629}
+  deactivationSound:
+    Guid:
+      Data1: 355270081
+      Data2: 1169997774
+      Data3: 1380914078
+      Data4: -1466305001
+    Path: event:/Robots/CompuertaLlaveRobots
+  movingSound:
+    Guid:
+      Data1: -1741821652
+      Data2: 1241865367
+      Data3: 432029340
+      Data4: -423725049
+    Path: event:/Player/RoombaMvmt
+  alarmSound:
+    Guid:
+      Data1: 1938189035
+      Data2: 1337185850
+      Data3: 1117048761
+      Data4: -783476551
+    Path: event:/Robots/alarma
 --- !u!95 &4766986976882572622
 Animator:
   serializedVersion: 7
@@ -1038,3 +1115,34 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.5960001, y: 1.1205319, z: 0.57957816}
   m_Center: {x: 0, y: 0.6745333, z: -0.56553775}
+--- !u!114 &846092074098578229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5278807847577004729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1741821652
+      Data2: 1241865367
+      Data3: 432029340
+      Data4: -423725049
+    Path: event:/Player/RoombaMvmt
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 35

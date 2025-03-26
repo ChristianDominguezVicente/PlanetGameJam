@@ -632,6 +632,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f4228a0f764da4aef8c173e241cfe517, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3663646438352485699}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f4228a0f764da4aef8c173e241cfe517, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3181857348872508195}
   m_SourcePrefab: {fileID: 100100000, guid: f4228a0f764da4aef8c173e241cfe517, type: 3}
 --- !u!4 &8492512944927704384 stripped
 Transform:
@@ -673,6 +676,27 @@ MonoBehaviour:
   cylinder: {fileID: 2467817770956826598}
   pointLights:
   - {fileID: 6437629670893951615}
+  deactivationSound:
+    Guid:
+      Data1: 355270081
+      Data2: 1169997774
+      Data3: 1380914078
+      Data4: -1466305001
+    Path: event:/Robots/CompuertaLlaveRobots
+  movingSound:
+    Guid:
+      Data1: -1741821652
+      Data2: 1241865367
+      Data3: 432029340
+      Data4: -423725049
+    Path: event:/Player/RoombaMvmt
+  alarmSound:
+    Guid:
+      Data1: 1938189035
+      Data2: 1337185850
+      Data3: 1117048761
+      Data4: -783476551
+    Path: event:/Robots/alarma
 --- !u!95 &7240389401098385648
 Animator:
   serializedVersion: 7
@@ -738,3 +762,34 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.5960001, y: 1.5639999, z: 0.57957816}
   m_Center: {x: 0, y: 0.8962673, z: -0.56553775}
+--- !u!114 &3181857348872508195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9119973051476402170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1741821652
+      Data2: 1241865367
+      Data3: 432029340
+      Data4: -423725049
+    Path: event:/Player/RoombaMvmt
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 35

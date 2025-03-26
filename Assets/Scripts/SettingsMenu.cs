@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
+using FMODUnity;
 
 public class SettingsMenu : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class SettingsMenu : MonoBehaviour
     [SerializeField] private Toggle screen;
     [SerializeField] private TMP_Dropdown quality;
     [SerializeField] private GameObject settingsMenu;
+
+    [Header("FMOD")]
+    [SerializeField] private EventReference buttonClickSound;
 
     private void Start()
     {
@@ -37,6 +41,7 @@ public class SettingsMenu : MonoBehaviour
 
     public void FullScreen()
     {
+        AudioManager.instance.PlayOneShot(buttonClickSound, this.transform.position);
         Screen.fullScreen = screen.isOn;
         if (screen.isOn == false)
             PlayerPrefs.SetInt("Screen", 1);

@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Mono.Cecil;
 using UnityEngine;
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
@@ -144,6 +145,7 @@ namespace StarterAssets
 
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+
         }
 
         private void Update()
