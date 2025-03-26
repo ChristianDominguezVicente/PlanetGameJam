@@ -727,7 +727,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Thanks for playing Rhibus-5!\r\n\r\r\nA Game for Planet Game Jam 2025\n"
+  m_text: "Thanks for playing Brighid-5!\r\n\r\r\nA Game for Planet Game Jam 2025\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e6a96ff1d2e714d4aba971e3734c5f66, type: 2}
   m_sharedMaterial: {fileID: -5399900003667409886, guid: e6a96ff1d2e714d4aba971e3734c5f66, type: 2}
