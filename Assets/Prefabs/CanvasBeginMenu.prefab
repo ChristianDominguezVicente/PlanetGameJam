@@ -444,10 +444,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4179819673102786338}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 967768740383807745}
+        m_TargetAssemblyTypeName: BeginMenu, Assembly-CSharp
+        m_MethodName: Settings
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -455,18 +455,6 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 4144194785372935088}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
         m_CallState: 2
 --- !u!1 &1145019344880246908
 GameObject:
@@ -661,6 +649,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   beginMenu: {fileID: 4179819673102786338}
   settingsMenu: {fileID: 4144194785372935088}
+  buttonClickSound:
+    Guid:
+      Data1: -1045043580
+      Data2: 1107684183
+      Data3: 1276509848
+      Data4: 1566440559
+    Path: event:/UI/change_selection
+  openMenuSound:
+    Guid:
+      Data1: -32246978
+      Data2: 1154066866
+      Data3: 391426985
+      Data4: 1083248724
+    Path: event:/UI/select
+  closeMenuSound:
+    Guid:
+      Data1: 225403598
+      Data2: 1174589660
+      Data3: 696638346
+      Data4: 1955280997
+    Path: event:/UI/back
+  menuMusic:
+    Guid:
+      Data1: 1417936653
+      Data2: 1334927468
+      Data3: -1485296748
+      Data4: 245300326
+    Path: event:/Music/TemaMenu
 --- !u!114 &5219557656754563732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -678,8 +694,14 @@ MonoBehaviour:
   SFXSlider: {fileID: 7953179336874683218}
   screen: {fileID: 273272349212482767}
   quality: {fileID: 2484864012164539205}
-  beginMenu: {fileID: 4179819673102786338}
   settingsMenu: {fileID: 4144194785372935088}
+  buttonClickSound:
+    Guid:
+      Data1: -1045043580
+      Data2: 1107684183
+      Data3: 1276509848
+      Data4: 1566440559
+    Path: event:/UI/change_selection
 --- !u!223 &3688480575076720444
 Canvas:
   m_ObjectHideFlags: 0
@@ -720,7 +742,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1440, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -1717,22 +1739,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4179819673102786338}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 4144194785372935088}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 967768740383807745}
+        m_TargetAssemblyTypeName: BeginMenu, Assembly-CSharp
+        m_MethodName: ExitScreen
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

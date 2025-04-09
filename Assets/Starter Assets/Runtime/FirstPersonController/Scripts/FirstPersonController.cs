@@ -1,6 +1,10 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+//using Mono.Cecil;
+using UnityEngine;
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 #endif
 
 namespace StarterAssets
@@ -61,6 +65,11 @@ namespace StarterAssets
         public float StaminaDecreaseRate = 1.0f;
         public float StaminaRecoveryRate = 1.0f;
 
+        [Header("Camara")]
+        [SerializeField] private Camera mainCamera;
+        [SerializeField] private Image blackScreen;
+        [SerializeField] private GameObject dieText;
+
         // cinemachine
         private float _cinemachineTargetPitch;
 
@@ -82,7 +91,10 @@ namespace StarterAssets
         // stamina
         private float _currentStamina;
         private bool _canSprint = true;
-        
+
+        // dead
+        private bool isDead = false;
+
 
 #if ENABLE_INPUT_SYSTEM
         private PlayerInput _playerInput;
@@ -130,10 +142,16 @@ namespace StarterAssets
             _jumpTimeoutDelta = JumpTimeout;
             _fallTimeoutDelta = FallTimeout;
             _currentStamina = MaxStamina;
+
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+
         }
 
         private void Update()
         {
+            if (isDead) return;
+
             JumpAndGravity();
             GroundedCheck();
             HandleStamina();
@@ -351,6 +369,56 @@ namespace StarterAssets
 
             // when selected, draw a gizmo in the position of, and matching radius of, the grounded collider
             Gizmos.DrawSphere(new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z), GroundedRadius);
+        }
+
+        public void Die(Transform enemy)
+        {
+            isDead = true;
+            _controller.enabled = false;
+            _input.enabled = false; ;
+            StartCoroutine(DeathCinematic(enemy));
+        }
+
+        private IEnumerator DeathCinematic(Transform enemy)
+        {
+            blackScreen.gameObject.SetActive(true);
+            dieText.SetActive(true);
+
+            CanvasGroup dieTextCanvasGroup = dieText.GetComponent<CanvasGroup>();
+            if (dieTextCanvasGroup == null)
+            {
+                dieTextCanvasGroup = dieText.AddComponent<CanvasGroup>();
+            }
+            dieTextCanvasGroup.alpha = 0;
+
+            float fadeDuration = 2f;
+            float fadeTime = 0f;
+            Color startColor = blackScreen.color;
+            blackScreen.color = new Color(startColor.r, startColor.g, startColor.b, 0);
+
+            while (fadeTime < fadeDuration)
+            {
+                fadeTime += Time.deltaTime;
+                float alphaValue = Mathf.Clamp01(fadeTime / fadeDuration);
+
+                blackScreen.color = new Color(startColor.r, startColor.g, startColor.b, alphaValue);
+                dieTextCanvasGroup.alpha = alphaValue;
+                yield return null;
+            }
+
+            Vector3 enemyPosition = enemy.position;
+            Quaternion targetRotation = Quaternion.LookRotation(enemyPosition - mainCamera.transform.position);
+            float rotationSpeed = 2f;
+
+            while (Quaternion.Angle(mainCamera.transform.rotation, targetRotation) > 0.1f)
+            {
+                mainCamera.transform.rotation = Quaternion.Slerp(mainCamera.transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+                yield return null;
+            }
+
+            yield return new WaitForSeconds(2f);
+
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 }

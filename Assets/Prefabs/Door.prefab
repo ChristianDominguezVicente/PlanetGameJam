@@ -46,6 +46,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorText: {fileID: 0}
+  keys: 1
+  blackScreen: {fileID: 0}
 --- !u!65 &9166225761462263307
 BoxCollider:
   m_ObjectHideFlags: 0
